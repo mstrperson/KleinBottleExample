@@ -1,12 +1,12 @@
 public class OrientedSprite extends Sprite
 {
-  Map onMap;
+  Map map;
   boolean flip;
   
-  public OrientedSprite(float x, float y, Map map)
+  public OrientedSprite(int x, int y, Map map)
   {
-    super(x, y);
-    onMap = map;
+    super(x, y, random(-5, 5), random(-5, 5));
+    this.map = map;
     flip = false;
   }
   
@@ -45,22 +45,22 @@ public class OrientedSprite extends Sprite
   
   public void move()
   {
-    if(flip != onMap.flip)
+    if(flip != map.flip)
       pos = pos.add(new Vector2(-vel.x, vel.y));
     else
       pos = pos.add(vel);
       
-    if(pos.x < 0) pos.x += onMap.size.x;
-    else if(pos.x > onMap.size.x) pos.x -= onMap.size.x;
+    if(pos.x < 0) pos.x += map.size.x;
+    else if(pos.x > map.size.x) pos.x -= map.size.x;
     
     if(pos.y < 0)
     {
-      pos.y += onMap.size.y;
+      pos.y += map.size.y;
       flip = !flip;
     }
-    else if(pos.y > onMap.size.y)
+    else if(pos.y > map.size.y)
     {
-      pos.y -= onMap.size.y;
+      pos.y -= map.size.y;
       flip = !flip;
     }  
   }

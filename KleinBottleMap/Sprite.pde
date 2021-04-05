@@ -36,7 +36,7 @@ abstract class Sprite
   
   public void move()
   {
-    pos = pos.add(vel);
+    pos = pos.add(vel); //<>//
   }
   
   public Vector2 getPosition()
@@ -57,7 +57,9 @@ abstract class Sprite
       case DOWN:   vel.y = 5;  vel.x = 0;  break;
       case LEFT:   vel.y = 0;  vel.x = -5; break;
       case RIGHT:  vel.y = 0;  vel.x = 5;  break;
+      default: vel.x = 0; vel.y = 0; break;
     }
+    
   }
   
   // make this Sprite move at the speed := |<dx, dy>|

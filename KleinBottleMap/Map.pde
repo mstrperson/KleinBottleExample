@@ -16,17 +16,35 @@ public class Map
     size = new Vector2(sideA.width, sideA.height);
   }
   
-  void moveX(float dx)
+  void moveX(int dx)
   {
     topLeft.x += dx;
+    
+    println("TopLeft x: ", topLeft.x, " Size x: ", size.x);
+    
     if(topLeft.x >= size.x) topLeft.x -= size.x;
-    if(topLeft.x + size.x <= 0) topLeft.x += size.x;
+    else if(topLeft.x + size.x <= 0) topLeft.x += size.x;
   }
   
-  void moveY(float dy)
+  void moveY(int dy)
   {
     topLeft.y += dy;
-    if(topLeft.y >= size.y
+    
+    
+    println("TopLeft y: ", topLeft.y, " Size y: ", size.y);
+    
+    if(topLeft.y >= size.y) 
+    {
+      topLeft.y -= size.y;
+      flip = !flip;
+      println("FLIPPED going UP");
+    }
+    else if(topLeft.y + size.y <= 0)
+    { 
+      topLeft.y += size.y;
+      flip = !flip;
+      println("FLIPPED going DOWN");
+    }
   }
   
   public void drawMap()
