@@ -3,6 +3,8 @@ public class MapBoundDood extends OrientedSprite
   public MapBoundDood(int x, int y, Map map)
   {
     super(x, y, map);
+    vel.x = 0;
+    vel.y = 0;
   }
   
   void drawSprite()
@@ -10,7 +12,7 @@ public class MapBoundDood extends OrientedSprite
     Vector2 loc = viewPortLocation();
     println("player loc:  ", loc.x, loc.y);
     fill(0, 100, 200);
-    ellipse(loc.x, loc.y, 30, 30);
+    ellipse(loc.x, loc.y, 60, 60);
   }
   
   void move()
@@ -18,9 +20,11 @@ public class MapBoundDood extends OrientedSprite
     if(keyPressed)
       this.keyboardControl();
       
-    map.moveX((int)-this.vel.x);
-    map.moveY((int)-this.vel.y);
-    //super.move();
+    this.pos = this.pos.add(vel);  
+    map.topLeft = map.topLeft.subtract(vel);
+    //map.moveX((int)-this.vel.x);
+    //map.moveY((int)-this.vel.y);
+    ////super.move();
     
     //println("Position: ",this.pos.x, this.pos.y);
     
@@ -39,15 +43,15 @@ public class MapBoundDood extends OrientedSprite
     //  println("shifting map DOWN");
     //}
     
-    //Vector2 loc = viewPortLocation();
-    //if(loc.x < 100)
-    //  map.moveX(100 - loc.x);
-    //else if(loc.x > width - 100)
-    //  map.moveX(loc.x - (width - 100));
+    Vector2 loc = viewPortLocation();
+    if(loc.x < 100)
+      map.moveX(100 - (int)loc.x);
+    else if(loc.x > width - 100)
+      map.moveX((int)loc.x - (width - 100));
       
-    //if(loc.y < 100)
-    //  map.moveY(100 - loc.y);
-    //else if(loc.y > height - 100)
-    //  map.moveY(loc.y - (height - 100));
+    if(loc.y < 100)
+      map.moveY(100 - (int)loc.y);
+    else if(loc.y > height - 100)
+      map.moveY((int)loc.y - (height - 100));
   }
 }

@@ -12,12 +12,15 @@ public class Map
     flip=false;
     sideA = loadImage(fileNameA);
     sideB = loadImage(fileNameB);
+    //sideA.resize(1920, 1080);
+    //sideB.resize(1920, 1080);
     topLeft = new Vector2(0, 0);
     size = new Vector2(sideA.width, sideA.height);
   }
   
   void moveX(int dx)
   {
+    dx = dx % (int)size.x;
     topLeft.x += dx;
     
     println("TopLeft x: ", topLeft.x, " Size x: ", size.x);
@@ -28,6 +31,8 @@ public class Map
   
   void moveY(int dy)
   {
+    dy = dy % (int)size.y;
+    
     topLeft.y += dy;
     
     
@@ -48,7 +53,7 @@ public class Map
   }
   
   public void drawMap()
-  {
+  { 
     image(flip?sideA:sideB, topLeft.x - size.x, topLeft.y - size.y);
     image(flip?sideA:sideB, topLeft.x, topLeft.y - size.y);
     image(flip?sideA:sideB, topLeft.x + size.x, topLeft.y - size.y);

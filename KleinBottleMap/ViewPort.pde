@@ -24,6 +24,38 @@ public class ViewPort
   {
     player.move();
     
+    if(map.topLeft.x >= map.size.x) 
+    {
+      map.topLeft.x -= map.size.x;
+      player.pos.x += map.size.x;
+      for(OrientedSprite sprite : sprites)
+        sprite.pos.x += map.size.x;
+    }
+    else if(map.topLeft.x + map.size.x <= 0) 
+    {
+      map.topLeft.x += map.size.x;
+      player.pos.x -= map.size.x;
+      for(OrientedSprite sprite : sprites)
+        sprite.pos.x -= map.size.x;
+    }
+    
+    if(map.topLeft.y >= map.size.y) 
+    {
+      map.flip = !map.flip;
+      map.topLeft.y -= map.size.y;
+      player.pos.y += map.size.y;
+      for(OrientedSprite sprite : sprites)
+        sprite.pos.y += map.size.y;
+    }
+    else if(map.topLeft.y + map.size.y <= 0) 
+    {
+      map.flip = !map.flip;
+      map.topLeft.y += map.size.y;
+      player.pos.y -= map.size.y;
+      for(OrientedSprite sprite : sprites)
+        sprite.pos.y -= map.size.y;
+    }
+    
     map.drawMap();
     
     player.drawSprite();

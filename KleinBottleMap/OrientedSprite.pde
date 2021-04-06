@@ -14,18 +14,18 @@ public class OrientedSprite extends Sprite
   {
     Vector2 loc = viewPortLocation();
     fill(200, 10, 10);
-    triangle((orient ? width - loc.x : loc.x) + xOff, loc.y-10 + yOff, 
-             (orient ? width -loc.x-10 : loc.x+10) + xOff, loc.y + yOff, 
-             (orient ? width - loc.x : loc.x) + xOff, loc.y+10 + yOff);
+    triangle((orient ? width - loc.x : loc.x) + xOff, loc.y-30 + yOff, 
+             (orient ? width -loc.x-30 : loc.x+30) + xOff, loc.y + yOff, 
+             (orient ? width - loc.x : loc.x) + xOff, loc.y+30 + yOff);
     fill(10, 10, 200);
-    triangle((orient ? width - loc.x : loc.x) + xOff, loc.y-10 + yOff, 
-             (orient ? width - loc.x+10 : loc.x-10) + xOff, loc.y + yOff, 
-             (orient ? width - loc.x : loc.x) + xOff, loc.y+10 + yOff);
+    triangle((orient ? width - loc.x : loc.x) + xOff, loc.y-30 + yOff, 
+             (orient ? width - loc.x+10 : loc.x-30) + xOff, loc.y + yOff, 
+             (orient ? width - loc.x : loc.x) + xOff, loc.y+30 + yOff);
   }
   
   public Vector2 viewPortLocation()
   {
-    return this.pos.subtract(map.topLeft);
+    return this.pos.add(map.topLeft);
   }
   
   public void drawSprite()
@@ -45,9 +45,9 @@ public class OrientedSprite extends Sprite
   
   public void move()
   {
-    if(flip != map.flip)
-      pos = pos.add(new Vector2(-vel.x, vel.y));
-    else
+    //if(flip != map.flip)
+    //  pos = pos.add(new Vector2(-vel.x, vel.y));
+    //else
       pos = pos.add(vel);
       
     if(pos.x < 0) pos.x += map.size.x;

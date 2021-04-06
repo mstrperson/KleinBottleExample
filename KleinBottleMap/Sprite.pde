@@ -59,7 +59,7 @@ abstract class Sprite
       case RIGHT:  vel.y = 0;  vel.x = 5;  break;
       default: vel.x = 0; vel.y = 0; break;
     }
-    
+    println("keyboard control ", keyCode);
   }
   
   // make this Sprite move at the speed := |<dx, dy>|
