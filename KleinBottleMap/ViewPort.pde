@@ -8,7 +8,7 @@ public class ViewPort
   
   public ViewPort(Map map)
   {
-    player = new MapBoundDood((int)map.size.x / 2, (int)map.size.y / 2, map);
+    player = new MapBoundDood(width/2, height / 2, map);
     this.map = map;
     sprites = new ArrayList<OrientedSprite>();
     x = width / 2 - map.sideA.width / 2;
