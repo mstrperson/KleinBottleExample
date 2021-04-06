@@ -19,7 +19,7 @@ public class OrientedSprite extends Sprite
              (orient ? width - loc.x : loc.x) + xOff, loc.y+30 + yOff);
     fill(10, 10, 200);
     triangle((orient ? width - loc.x : loc.x) + xOff, loc.y-30 + yOff, 
-             (orient ? width - loc.x+10 : loc.x-30) + xOff, loc.y + yOff, 
+             (orient ? width - loc.x+30 : loc.x-30) + xOff, loc.y + yOff, 
              (orient ? width - loc.x : loc.x) + xOff, loc.y+30 + yOff);
   }
   
