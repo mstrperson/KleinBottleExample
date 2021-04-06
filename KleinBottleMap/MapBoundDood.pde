@@ -7,13 +7,13 @@ public class MapBoundDood extends OrientedSprite
     vel.y = 0;
   }
   
-  void drawSprite()
-  {
-    Vector2 loc = viewPortLocation();
-    println("player loc:  ", loc.x, loc.y);
-    fill(0, 100, 200);
-    ellipse(loc.x, loc.y, 60, 60);
-  }
+  //void drawSprite()
+  //{
+  //  Vector2 loc = viewPortLocation();
+  //  println("player loc:  ", loc.x, loc.y);
+  //  fill(0, 100, 200);
+  //  ellipse(loc.x, loc.y, 60, 60);
+  //}
   
   void move()
   {
